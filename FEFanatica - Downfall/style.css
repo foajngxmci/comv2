@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: padding-top 0.3s, padding-bottom 0.3s;
+}
+
+body.controls-hidden {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+header {
+    background-color: #2a2a2a;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: transform 0.3s;
+}
+
+body.controls-hidden header {
+    transform: translateY(-100%);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+.header-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: none;
+    background-color: #3a3a3a;
+    color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4a4a4a;
+}
+
+.progress-container {
+    width: 100%;
+    background-color: #3a3a3a;
+    height: 5px;
+    margin-top: 10px;
+    border-radius: 3px;
+    display: none;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #ff6b6b;
+    width: 0%;
+    border-radius: 3px;
+    transition: width 0.3s;
+}
+
+.reader-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.chapter-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #ff6b6b;
+}
+
+.manga-page {
+    width: 100%;
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.manga-page:hover {
+    transform: scale(1.01);
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    background-color: #3a3a3a;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #4a4a4a;
+}
+
+.nav-btn:disabled {
+    background-color: #2a2a2a;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 99;
+    transition: all 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: #ff5252;
+    transform: translateY(-3px);
+}
+
+.mobile-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #2a2a2a;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    display: none;
+    z-index: 98;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+
+body.controls-hidden .mobile-controls {
+    transform: translateY(100%);
+}
+
+.mobile-btn {
+    padding: 12px;
+    background-color: #3a3a3a;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    flex: 1;
+    margin: 0 5px;
+    font-size: 0.9rem;
+}
+
+.settings-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 101;
+    display: none;
+    width: 90%;
+    max-width: 400px;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+.settings-option {
+    margin-bottom: 15px;
+}
+
+.settings-option label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    display: none;
+}
+
+.chapter-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #2a2a2a;
+    border-radius: 10px 10px 0 0;
+    padding: 20px;
+    z-index: 102;
+    display: none;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.chapter-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+.chapter-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+}
+
+.chapter-item {
+    padding: 10px;
+    background-color: #3a3a3a;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.chapter-item:hover {
+    background-color: #4a4a4a;
+}
+
+.chapter-item.active {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.show-controls-btn {
+    position: fixed;
+    /* top: 10px;
+            left: 10px; */
+    bottom: 20px;
+    /* Ganti dari top ke bottom */
+    left: 20px;
+    /* Tetap di kiri */
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 99;
+    transition: all 0.3s;
+}
+
+.show-controls-btn:hover {
+    background-color: #ff5252;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px 15px;
+    }
+
+    .header-controls {
+        gap: 10px;
+    }
+
+    .progress-container {
+        display: block;
+    }
+
+    .mobile-controls {
+        display: flex;
+    }
+
+    .reader-container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    button {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+
+    .chapter-title {
+        font-size: 1rem;
+    }
+
+    .nav-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}

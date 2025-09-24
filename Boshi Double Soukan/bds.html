@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manga Reader - Responsif</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">MangaReader</div>
+        <div class="header-controls">
+            <button id="settings-btn">Pengaturan</button>
+            <button id="fullscreen-btn">Layar Penuh</button>
+            <!-- <button id="toggle-controls">Hide</button> -->
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </header>
+
+    <div class="reader-container">
+        <div id="manga-content">
+            <!-- Gambar manga akan dimuat di sini -->
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" id="prev-chapter">Chapter Sebelumnya</button>
+            <button class="nav-btn" id="next-chapter">Chapter Selanjutnya</button>
+        </div>
+    </div>
+
+    <div class="mobile-controls">
+        <button class="mobile-btn" id="toggle-controls">Hide</button>
+        <button class="mobile-btn" id="mobile-chapter">Chapter</button>
+        <button class="mobile-btn" id="back-to-top">Top</button>
+    </div>
+
+    <button class="show-controls-btn" id="show-controls">☰</button>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="settings-panel" id="settings-panel">
+        <div class="settings-header">
+            <h3>Pengaturan Baca</h3>
+            <button id="close-settings">X</button>
+        </div>
+        <div class="settings-option">
+            <label for="reading-mode">Mode Baca:</label>
+            <select id="reading-mode">
+                <option value="vertical">Vertikal (Scroll)</option>
+                <option value="horizontal">Horizontal (Halaman)</option>
+            </select>
+        </div>
+        <div class="settings-option">
+            <label for="image-quality">Kualitas Gambar:</label>
+            <select id="image-quality">
+                <option value="high">Tinggi</option>
+                <option value="medium" selected>Sedang</option>
+                <option value="low">Rendah</option>
+            </select>
+        </div>
+        <div class="settings-option">
+            <label for="auto-scroll">Auto Scroll:</label>
+            <select id="auto-scroll">
+                <option value="off">Mati</option>
+                <option value="slow">Lambat</option>
+                <option value="medium">Sedang</option>
+                <option value="fast">Cepat</option>
+            </select>
+        </div>
+        <div class="settings-option">
+            <label>
+                <input type="checkbox" id="hide-controls"> Sembunyikan kontrol setelah 3 detik
+            </label>
+        </div>
+        <button id="apply-settings" style="width: 100%; margin-top: 10px;">Terapkan</button>
+    </div>
+
+    <div class="chapter-panel" id="chapter-panel">
+        <div class="chapter-panel-header">
+            <h3>Pilih Chapter</h3>
+            <button id="close-chapter-panel">X</button>
+        </div>
+        <div class="chapter-list" id="chapter-list">
+            <!-- Daftar chapter akan dimuat di sini -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
